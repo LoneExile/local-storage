@@ -114,7 +114,7 @@
 
         async function getapi() {
             // Storing response
-            const response = await fetch('http://13.59.55.245:5000/checkStorage');
+            const response = await fetch('http://13.59.55.245/checkStorage');
             // Storing data in form of JSON
             var data = await response.json();
             proStorage = data.userID
