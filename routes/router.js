@@ -2,7 +2,16 @@ const express = require('express')
 
 const router = express.Router()
 const storePro = require('local-storage-pro')
+const localforage = require('localforage')
 // const { storage } = require('local-storage-fallback')
+
+localforage.setItem('key', '111', function (err) {
+  // if err is non-null, we got an error
+  let a = localforage.getItem('key', function (err, value) {
+    // if err is non-null, we got an error. otherwise, value is the value
+  })
+  console.log(a)
+})
 
 var AppId = 'AppId41'
 router.get('/', (req, res) => {
