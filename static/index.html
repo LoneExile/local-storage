@@ -15,7 +15,7 @@
     <script>
         let localStorageSet = null
         let intLocal = null
-        let setKey = null
+        let setKey = AppID1
         let proStorage = "<%= userID %>";
         let checkLocal = localStorage.getItem(setKey);
         let checkSession = sessionStorage.getItem(setKey);
@@ -96,11 +96,12 @@
         function genID(){
             let id = setKey.substring(5);
             id = parseInt(id);
-            if (id = 0) {
+            if (id == 0) {
                 setKey = AppID1
                 document.getElementById('result').innerHTML = setKey;
             }else{
-                setKey = AppID + (id+1).toString()
+                id = id +1
+                setKey = AppID + id.toString()
                 document.getElementById('result').innerHTML = setKey;
             }
             console.log(setKey);
