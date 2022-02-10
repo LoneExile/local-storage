@@ -22,7 +22,13 @@
         //     if(value.equals(desired_value))
         //     console.log(key + " => " + value);
         // }
-        let setKey = localStorage.key(localStorage.length-1)
+        let setKey = ''
+        if (setKey){
+            setKey = 'AppID1'
+        }else{
+            let setKey = localStorage.key(localStorage.length-1)
+        }
+        
         let proStorage = "<%= userID %>";
         let checkLocal = localStorage.getItem(setKey);
         let checkSession = sessionStorage.getItem(setKey);
@@ -96,7 +102,7 @@
             bad()
             // document.getElementById('result').innerHTML = 'tab is bad';
             // document.getElementById('result').style.color = "red";
-            console.log('logStorageNowBad '+", L: "+checkLocal+ ", P: "+ proStorage);
+            console.log('logStorageNowBad '+", L: "+checkLocal+ ", P: "+ proStorage+ ", key: "+ setKey);
             clearInterval(myInterval)
         // alert("Another tab is open!");
             }
