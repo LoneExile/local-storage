@@ -69,7 +69,7 @@
         function logStorageNow(){
         checkLocal = localStorage.getItem(setKey);
         if(checkLocal != proStorage){
-            document.getElementById('result').innerHTML = 'tab is bad';
+            // document.getElementById('result').innerHTML = 'tab is bad';
             document.getElementById('result').style.color = "red";
             console.log('logStorageNowBad '+", L: "+checkLocal+ ", P: "+ proStorage);
             clearInterval(myInterval)
