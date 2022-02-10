@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+      <span><%-userID%></span>
+    
+    <div id="result" style="font-size: 30px;"></div>
+    <script>
+        let localStorageSet = null
+        let intLocal = null
+        let setKey = "<%= AppId %>";
+        let proStorage = "<%= userID %>";
+        let checkLocal = localStorage.getItem(setKey);
+        let checkSession = sessionStorage.getItem(setKey);
+        // let proStorage2 = store.getItem(AppId38)
+        // console.log('pro2 ' + proStorage2);s
+
+        if(!proStorage){
+            console.log('check1');
+            proStorage = 1;
+            localStorage.setItem(setKey, proStorage)
+            good()
+            // sessionStorage.setItem(setKey, proStorage)
+        }else if (parseInt(proStorage) > 0 && !checkLocal){
+            console.log('check2');
+            localStorage.setItem(setKey, proStorage)
+            // sessionStorage.setItem(setKey, proStorage)
+            good()
+        }else if (parseInt(proStorage) > 0 && checkLocal){
+            if((parseInt(proStorage) < parseInt(checkLocal)) ){
+                console.log('err');
+                veryBad()
+            }else if ((parseInt(proStorage) - parseInt(checkLocal)) == 1){
+                // same browser refresh
+                console.log('check3');
+                localStorage.setItem(setKey, proStorage)
+                sessionStorage.setItem(setKey, proStorage)
+                good()
+            }
+            else{
+                console.log('check4');
+                localStorage.setItem(setKey, proStorage)
+                sessionStorage.setItem(setKey, proStorage)
+                good()
+            }
+        }
+
+        function good(){
+            document.getElementById('result').innerHTML = 'tab is good';
+            document.getElementById('result').style.color = "green"
+        }
+        function bad(){
+            document.getElementById('result').innerHTML = 'tab is bad';
+            document.getElementById('result').style.color = "red";
+        }
+        function veryBad(){
+            document.getElementById('result').innerHTML = 'two browsers open?';
+            document.getElementById('result').style.color = "red";
+        }
+
+        function logStorageNow(){
+        checkLocal = localStorage.getItem(setKey);
+        if(checkLocal != proStorage){
+            bad()
+            console.log('logStorageNowBad '+", L: "+checkLocal+ ", P: "+ proStorage);
+            clearInterval(myInterval)
+        // alert("Another tab is open!");
+            }
+        console.log('logStorageNow '+", L: "+checkLocal+ ", P: "+ proStorage);
+        // proStorage = "<%= userID %>";
+        // console.log('logStorageNow '+'S: '+checkSession+", L: "+checkLocal+ ", P: "+ proStorage);
+        }
+        const myInterval = setInterval(logStorageNow, 1000);
+
+        async function getapi() {
+            // Storing response
+            const response = await fetch('http://localhost:3001/checkStorage');
+            // Storing data in form of JSON
+            var data = await response.json();
+            proStorage = data.userID
+            console.log(data.userID);
+        }
+
+        function checkProAPI(){
+            getapi()
+            // document.getElementById('result').innerHTML = 'tab is good!!';
+        }
+
+    </script>
+
+<!-- <button onclick="checkTab()">submit</button> -->
+<button onclick="checkProAPI()">submit</button>
+
+
+    <!-- <script src="/static/token.js"></script> -->
+<!-- <a href="http://localhost:3001/" target="_blank">New tab!</a>  -->
+</body>
+
+</html>
