@@ -22,7 +22,7 @@
         //     if(value.equals(desired_value))
         //     console.log(key + " => " + value);
         // }
-        let setKey = localStorage.key(localStorage.length)
+        let setKey = localStorage.key(localStorage.length-1)
         let proStorage = "<%= userID %>";
         let checkLocal = localStorage.getItem(setKey);
         let checkSession = sessionStorage.getItem(setKey);
