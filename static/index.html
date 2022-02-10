@@ -23,10 +23,11 @@
         //     console.log(key + " => " + value);
         // }
         //let setKey
+        let setKey = localStorage.key(localStorage.length)
         if (setKey == 'undefined' || setKey == null){
-            let setKey = 'AppID1'
+            setKey = 'AppID1'
         }else{
-            let setKey = localStorage.key(localStorage.length)
+            setKey = localStorage.key(localStorage.length)
         }
         
         let proStorage = "<%= userID %>";
