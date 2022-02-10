@@ -7,7 +7,12 @@
     <title>Document</title>
 </head>
 <body>
-      
+      <span><%-userID%></span>
+      <br>
+      <!-- <span id="genID"><%-AppId%></span> -->
+      <div id="genIDx"></span>
+        <br>
+    <div id="result" style="font-size: 30px;"></div>
     <script>
         let localStorageSet = null
         let intLocal = null
@@ -64,6 +69,7 @@
         function logStorageNow(){
         checkLocal = localStorage.getItem(setKey);
         if(checkLocal != proStorage){
+            bad()
             // document.getElementById('result').innerHTML = 'tab is bad';
             // document.getElementById('result').style.color = "red";
             console.log('logStorageNowBad '+", L: "+checkLocal+ ", P: "+ proStorage);
@@ -101,7 +107,7 @@
                 setKey = 'AppID' + id.toString()
                 console.log("2:"+setKey);
             }
-            document.getElementById('genIDx').innerHTML = setKey;
+            //document.getElementById('genIDx').innerHTML = setKey;
 
             console.log("3:"+setKey);
             checkProAPI()
@@ -109,15 +115,9 @@
 
     </script>
 
-    <span><%-userID%></span>
-    <br>
-    <!-- <span id="genID"><%-AppId%></span> -->
-    <div id="genIDx"></span>
-    <br>
-    <div id="result" style="font-size: 30px;"></div>
-
 <!-- <button onclick="checkTab()">submit</button> -->
-<button onclick="genID()">increase ID</button>
+<!-- <button onclick="genID()">increase ID</button> -->
+<br>
 <button onclick="checkProAPI()">check tab</button>
 
 
