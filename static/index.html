@@ -10,7 +10,7 @@
       <span><%-userID%></span>
       <br>
       <!-- <span id="genID"><%-AppId%></span> -->
-      <div id="genID"></span>
+      <div id="genIDx"></span>
         <br>
     <div id="result" style="font-size: 30px;"></div>
     <script>
@@ -105,9 +105,10 @@
                 setKey = 'AppID' + id.toString()
                 console.log("2:"+setKey);
             }
-            document.getElementById('genID').innerHTML = setKey;
+            document.getElementById('genIDx').innerHTML = setKey;
 
             console.log("3:"+setKey);
+            checkProAPI()
         }
 
     </script>
