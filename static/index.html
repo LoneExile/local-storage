@@ -11,6 +11,7 @@
       <br>
       <!-- <span id="genID"><%-AppId%></span> -->
       <span id="genID"></span>
+
     <div id="result" style="font-size: 30px;"></div>
     <script>
         let localStorageSet = null
@@ -98,11 +99,11 @@
             id = parseInt(id);
             if (id == 0) {
                 setKey = 'AppID1'
-                document.getElementById('result').innerHTML = setKey;
+                document.getElementById('genID').innerHTML = setKey;
             }else{
                 id = id +1
                 setKey = 'AppID' + id.toString()
-                document.getElementById('result').innerHTML = setKey;
+                document.getElementById('genID').innerHTML = setKey;
             }
             console.log(setKey);
         }
