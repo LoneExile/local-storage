@@ -100,12 +100,14 @@
             if (id == 0) {
                 setKey = 'AppID1'
                 document.getElementById('genID').innerHTML = setKey;
+                console.log("1:"+setKey);
             }else{
                 id = id +1
                 setKey = 'AppID' + id.toString()
                 document.getElementById('genID').innerHTML = setKey;
+                console.log("2:"+setKey);
             }
-            console.log(setKey);
+            console.log("3:"+setKey);
         }
 
     </script>
