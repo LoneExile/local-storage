@@ -23,7 +23,7 @@
         //     console.log(key + " => " + value);
         // }
         let setKey
-        if (setKey == 'undefined'){
+        if (setKey == 'undefined' || setKey == null){
             setKey = 'AppID1'
         }else{
             let setKey = localStorage.key(localStorage.length-1)
