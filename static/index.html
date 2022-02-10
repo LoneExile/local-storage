@@ -68,14 +68,9 @@
         function genID(){
             let id = setKey.substring(5);
             id = parseInt(id);
-            if (id == 0) {
-                setKey = 'AppID1'
-                console.log("1:"+setKey);
-            }else{
-                id = id +1
-                setKey = 'AppID' + id.toString()
-                console.log("2:"+setKey);
-            }
+            id = id +1
+            setKey = 'AppID' + id.toString()
+            // console.log("2:"+setKey);
             //document.getElementById('genIDx').innerHTML = setKey;
 
             console.log("3:"+setKey);
