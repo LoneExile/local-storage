@@ -8,7 +8,7 @@
 </head>
 <body>
       <span><%-userID%></span>
-    
+      <span><%-AppId%></span>
     <div id="result" style="font-size: 30px;"></div>
     <script>
         let localStorageSet = null
@@ -79,7 +79,7 @@
 
         async function getapi() {
             // Storing response
-            const response = await fetch('http://localhost:3001/checkStorage');
+            const response = await fetch('http://13.59.55.245:5000/checkStorage');
             // Storing data in form of JSON
             var data = await response.json();
             proStorage = data.userID
