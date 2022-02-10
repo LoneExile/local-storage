@@ -53,6 +53,23 @@
             }
         }
 
+        function genID(){
+            let id = setKey.substring(5);
+            id = parseInt(id);
+            if (id == 0) {
+                setKey = 'AppID1'
+                console.log("1:"+setKey);
+            }else{
+                id = id +1
+                setKey = 'AppID' + id.toString()
+                console.log("2:"+setKey);
+            }
+            //document.getElementById('genIDx').innerHTML = setKey;
+
+            console.log("3:"+setKey);
+            checkProAPI()
+        }
+
         function good(){
             document.getElementById('result').innerHTML = 'tab is good';
             document.getElementById('result').style.color = "green"
@@ -96,27 +113,12 @@
             // document.getElementById('result').innerHTML = 'tab is good!!';
         }
 
-        function genID(){
-            let id = setKey.substring(5);
-            id = parseInt(id);
-            if (id == 0) {
-                setKey = 'AppID1'
-                console.log("1:"+setKey);
-            }else{
-                id = id +1
-                setKey = 'AppID' + id.toString()
-                console.log("2:"+setKey);
-            }
-            //document.getElementById('genIDx').innerHTML = setKey;
-
-            console.log("3:"+setKey);
-            checkProAPI()
-        }
+        
 
     </script>
 
-<!-- <button onclick="checkTab()">submit</button> -->
-<!-- <button onclick="genID()">increase ID</button> -->
+
+<button onclick="genID()">increase ID</button>
 <br>
 <button onclick="checkProAPI()">check tab</button>
 
