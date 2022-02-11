@@ -65,7 +65,7 @@ router.get('/localAndSession', (req, res) => {
   res.status(200)
   res.type('text/html')
 
-  res.render('../static/alone.html')
+  res.render('../static/ls.html')
 })
 
 module.exports = router
