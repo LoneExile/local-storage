@@ -41,15 +41,15 @@ console.log("2: "+x);
 <script src="https://unpkg.com/readometer@1/dist/readometer.iife.js" crossorigin type="text/javascript"></script>
 <script src="/static/pro.js" crossorigin type="text/javascript"></script>
 <script>
-    let z = store.getItem('user')
+    let z = LocalStoragePro.getItem('user')
     if (z == null || z == 'undefined'){
-        store.setItem('user', '1' )
+        LocalStoragePro.setItem('user', '1' )
     }
-    z = store.getItem('user')
+    z = LocalStoragePro.getItem('user')
     if (parseInt(z) >0){
         z = parseInt(z)+1
         z = z.toString()
-        store.setItem('user',  z )
+        LocalStoragePro.setItem('user',  z )
         console.log("1: "+z);
     }
     console.log("2: "+z);
