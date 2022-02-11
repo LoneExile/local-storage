@@ -1,8 +1,10 @@
 <!-- Example store.js usage with script tag -->
 <script src="/static/store.legacy.min.js"></script>
 <script>
-store.set('user', { name:'Marcus' })
-let x = store.get('user').name
-
+store.set('user', { value:'1' })
+let x = store.get('user').user
+if (parseInt(x) >0){
+    x = x+1
+}
 console.log(x);
 </script>
