@@ -4,7 +4,7 @@ const router = express.Router()
 const storePro = require('local-storage-pro')
 // const localforage = require('localforage')
 const { storage } = require('local-storage-fallback')
-
+const EventEmitterObject = require('events')
 // localforage.setItem('key', '111', function (err) {
 //   // if err is non-null, we got an error
 //   let a = localforage.getItem('key', function (err, value) {
@@ -13,7 +13,7 @@ const { storage } = require('local-storage-fallback')
 //   console.log(a)
 // })
 
-var AppId = 'AppId41'
+var AppId = 'AppId42'
 router.get('/', (req, res) => {
   var userID = storePro.getItem(AppId)
   var userIDnew = storage.getItem(AppId)
@@ -56,7 +56,7 @@ router.get('/alone', (req, res) => {
   res.status(200)
   res.type('text/html')
 
-  res.render('../static/alone.html')
+  res.render('../static/alone.html', { EventEmitterObject })
 })
 
 router.get('/localAndSession', (req, res) => {

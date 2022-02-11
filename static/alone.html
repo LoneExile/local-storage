@@ -1,8 +1,11 @@
-<!-- Example store.js usage with script tag -->
+<!-- 
 <script src="/static/store.legacy.min.js"></script>
 <script>
-store.set('user', { value:'1' })
-let x = store.get('user').user
+let x = store.get('user')
+if (x == null || x == 'undefined'){
+    store.set('user', { value:'1' })
+}
+x = store.get('user').value
 if (parseInt(x) >0){
     x = parseInt(x)+1
     x = x.toString()
@@ -10,4 +13,44 @@ if (parseInt(x) >0){
     console.log("1: "+x);
 }
 console.log("2: "+x);
+</script> -->
+
+<!-- <script src="https://unpkg.com/local-storage-fallback/lib/dist.min.js"></script>
+<script>
+
+
+    let y = window.localStorageFallback.getItem('user')
+    if (y == null || y == 'undefined'){
+        window.localStorageFallback.setItem('user', '1' )
+    }
+    y = window.localStorageFallback.getItem('user')
+    if (parseInt(y) >0){
+        y = parseInt(y)+1
+        y = y.toString()
+        window.localStorageFallback.setItem('user',  y )
+        console.log("1: "+y);
+    }
+    console.log("2: "+y);
+</script> -->
+
+<script src="https://unpkg.com/basekits@1/dist/basekits.iife.js" crossorigin type="text/javascript"></script>
+<!-- <script type="text/javascript" src="https://unpkg.com/basekits@1/dist/basekits.iife.js"></script> -->
+<script type="text/javascript" src="https://unpkg.com/event-emitter-object@1/dist/event-emitter-object.iife.js"></script>
+<script type="text/javascript" src="https://unpkg.com/visibility-state-listener@1/dist/visibility-state-listener.iife.js"></script>
+
+<script src="https://unpkg.com/readometer@1/dist/readometer.iife.js" crossorigin type="text/javascript"></script>
+<script src="/static/pro.js" crossorigin type="text/javascript"></script>
+<script>
+    let z = store.getItem('user')
+    if (z == null || z == 'undefined'){
+        store.setItem('user', '1' )
+    }
+    z = store.getItem('user')
+    if (parseInt(z) >0){
+        z = parseInt(z)+1
+        z = z.toString()
+        store.setItem('user',  z )
+        console.log("1: "+z);
+    }
+    console.log("2: "+z);
 </script>
