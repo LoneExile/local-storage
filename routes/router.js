@@ -50,4 +50,22 @@ router.get('/checkStorage', (req, res) => {
   })
 })
 
+router.get('/alone', (req, res) => {
+  // console.log(userID)
+
+  res.status(200)
+  res.type('text/html')
+
+  res.render('../static/alone.html')
+})
+
+router.get('/localAndSession', (req, res) => {
+  // console.log(userID)
+
+  res.status(200)
+  res.type('text/html')
+
+  res.render('../static/alone.html')
+})
+
 module.exports = router
