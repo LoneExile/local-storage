@@ -4,7 +4,10 @@
 store.set('user', { value:'1' })
 let x = store.get('user').user
 if (parseInt(x) >0){
-    x = x+1
+    x = parseInt(x)+1
+    x = x.toString()
+    store.set('user', { value: x })
+    console.log("1: "+x);
 }
-console.log(x);
+console.log("2: "+x);
 </script>
